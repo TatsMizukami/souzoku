@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山田税理士事務所 | 相続のことなら、まず私にご相談ください</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-deep: #1a5c3a;
+    --green-mid:  #2d7a52;
+    --green-light: #e8f4ed;
+    --green-pale: #f4faf6;
+    --warm-white: #fdfcf8;
+    --warm-tan:   #f5f0e8;
+    --text-dark:  #2c2c2c;
+    --text-mid:   #555;
+    --text-light: #888;
+    --accent-gold: #c9a84c;
+    --accent-gold-light: #fdf6e3;
+    --border: #ddd;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-dark);
+    background: var(--warm-white);
+    line-height: 1.8;
+  }
+
+  /* ===== HEADER / NAV ===== */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253,252,248,0.96);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--green-deep);
+  }
+  .logo-main {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    line-height: 1.2;
+  }
+  .logo-sub {
+    font-size: 10px;
+    color: var(--text-light);
+    letter-spacing: .1em;
+    margin-top: 2px;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  nav a {
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--text-mid);
+    font-weight: 500;
+    letter-spacing: .04em;
+    transition: color .2s;
+  }
+  nav a:hover { color: var(--green-deep); }
+
+  .nav-cta {
+    background: var(--green-deep);
+    color: #fff !important;
+    padding: 9px 20px;
+    border-radius: 24px;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: .05em;
+    transition: background .2s, transform .15s !important;
+  }
+  .nav-cta:hover { background: var(--green-mid) !important; transform: translateY(-1px); }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(160deg, var(--green-pale) 0%, var(--warm-tan) 100%);
+    padding: 80px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: rgba(45,122,82,0.06);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.07);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--accent-gold-light);
+    color: var(--accent-gold);
+    border: 1px solid #e8d5a0;
+    border-radius: 20px;
+    padding: 5px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--green-deep);
+    line-height: 1.5;
+    margin-bottom: 18px;
+    letter-spacing: .02em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent-gold);
+  }
+  .hero p {
+    font-size: 15px;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.9;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--green-deep);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 32px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 16px rgba(26,92,58,.18);
+  }
+  .btn-primary:hover {
+    background: var(--green-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,92,58,.22);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--green-deep);
+    border: 2px solid var(--green-deep);
+    padding: 13px 30px;
+    border-radius: 32px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+  }
+  .btn-outline:hover { background: var(--green-pale); }
+
+  .hero-note {
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  /* ===== SECTION WRAPPER ===== */
+  .section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: var(--green-mid);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--green-deep);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .section-lead {
+    font-size: 14px;
+    color: var(--text-mid);
+    max-width: 560px;
+    line-height: 1.9;
+    margin-bottom: 44px;
+  }
+  .divider {
+    width: 40px;
+    height: 3px;
+    background: var(--accent-gold);
+    border-radius: 2px;
+    margin: 16px 0 44px;
+  }
+
+  /* ===== WORRY SECTION ===== */
+  .worry-bg {
+    background: var(--warm-tan);
+  }
+  .worry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .worry-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 22px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border: 1px solid #e8e0d0;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .worry-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.07);
+  }
+  .worry-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .worry-card p {
+    font-size: 14px;
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-weight: 500;
+  }
+
+  /* ===== FEATURES ===== */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    background: var(--green-pale);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid #cce5d7;
+    transition: transform .2s;
+  }
+  .feature-card:hover { transform: translateY(-3px); }
+  .feature-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .feature-card h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--green-deep);
+    margin-bottom: 10px;
+  }
+  .feature-card p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.85;
+  }
+
+  /* ===== PROFILE ===== */
+  .profile-bg {
+    background: var(--green-pale);
+    border-top: 1px solid #cce5d7;
+    border-bottom: 1px solid #cce5d7;
+  }
+  .profile-inner {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+  @media (max-width: 680px) {
+    .profile-inner { grid-template-columns: 1fr; gap: 28px; }
+    .profile-photo { width: 140px; height: 140px; border-radius: 50%; }
+  }
+  .profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 16px;
+    object-fit: cover;
+    background: #cce5d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
+  }
+  .profile-photo-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #9ed4b8, #5aaa84);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    flex-shrink: 0;
+  }
+  .profile-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--green-deep);
+    margin-bottom: 4px;
+  }
+  .profile-title {
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-bottom: 18px;
+    letter-spacing: .04em;
+  }
+  .profile-message {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.95;
+    margin-bottom: 24px;
+    border-left: 3px solid var(--accent-gold);
+    padding-left: 16px;
+    font-style: italic;
+  }
+  .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .profile-table tr td {
+    padding: 7px 4px;
+    border-bottom: 1px solid #ddeee5;
+    vertical-align: top;
+  }
+  .profile-table tr td:first-child {
+    color: var(--text-light);
+    width: 90px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  /* ===== SERVICES ===== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 20px;
+  }
+  .service-card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0,0,0,.09);
+  }
+  .service-head {
+    background: var(--green-deep);
+    color: #fff;
+    padding: 18px 22px;
+  }
+  .service-head h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .service-head p {
+    font-size: 11px;
+    opacity: .75;
+    letter-spacing: .06em;
+  }
+  .service-body {
+    padding: 20px 22px;
+  }
+  .service-body ul {
+    list-style: none;
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 2;
+  }
+  .service-body ul li::before {
+    content: '✓ ';
+    color: var(--green-mid);
+    font-weight: 700;
+  }
+
+  /* ===== OFFICE INFO ===== */
+  .info-bg {
+    background: var(--warm-tan);
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  @media (max-width: 640px) {
+    .info-grid { grid-template-columns: 1fr; }
+  }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .info-table tr td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #e0d8c8;
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .info-table tr td:first-child {
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    width: 80px;
+    white-space: nowrap;
+    padding-top: 14px;
+  }
+  .map-placeholder {
+    width: 100%;
+    height: 240px;
+    background: #d5e8dc;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--green-mid);
+    gap: 8px;
+    border: 1px solid #bcd9c8;
+  }
+  .map-placeholder svg {
+    width: 32px; height: 32px;
+    fill: none;
+    stroke: var(--green-mid);
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  /* ===== CTA BANNER ===== */
+  .cta-banner {
+    background: var(--green-deep);
+    color: #fff;
+    text-align: center;
+    padding: 64px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .cta-banner h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: .03em;
+  }
+  .cta-banner p {
+    font-size: 14px;
+    opacity: .8;
+    margin-bottom: 32px;
+    line-height: 1.9;
+  }
+  .cta-tel {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: .08em;
+    transition: opacity .2s;
+  }
+  .cta-tel:hover { opacity: .85; }
+  .cta-tel-note {
+    font-size: 12px;
+    opacity: .65;
+    margin-bottom: 28px;
+    display: block;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1a2420;
+    color: rgba(255,255,255,.6);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 2;
+  }
+  footer .footer-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp .7s ease forwards;
+  }
+  .delay-1 { animation-delay: .15s; }
+  .delay-2 { animation-delay: .3s; }
+  .delay-3 { animation-delay: .45s; }
+
+  /* ===== BADGE ===== */
+  .badge {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #cce5d7;
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 12px;
+    color: var(--green-mid);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 760px) {
+    nav ul { display: none; }
+    .hero { padding: 56px 20px 52px; }
+    .section { padding: 52px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-main">山田税理士事務所</span>
+      <span class="logo-sub">相続・税務の専門家</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#about">事務所紹介</a></li>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#profile">代表プロフィール</a></li>
+        <li><a href="#info">事務所情報</a></li>
+        <li><a href="#contact" class="nav-cta">無料相談する</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">相続専門税理士</div>
+  <h1 class="fade-up">
+    相続のお悩み、<br>
+    <em>ひとりで抱え込まないでください。</em>
+  </h1>
+  <p class="fade-up delay-1">
+    大切な人を亡くされた後の複雑な手続き、
+    「何から始めればいいかわからない」という方へ。<br>
+    初めての方にも丁寧に、わかりやすくサポートします。
+  </p>
+  <div class="hero-btns fade-up delay-2">
+    <a href="#contact" class="btn-primary">まずは無料相談（30分）</a>
+    <a href="#services" class="btn-outline">サービスを見る</a>
+  </div>
+  <p class="hero-note fade-up delay-3">📞 お電話でも気軽にどうぞ ／ 平日 9:00〜17:30</p>
+</section>
+
+<!-- WORRY SECTION -->
+<div class="worry-bg">
+  <div class="section">
+    <p class="section-label">お悩みはありませんか？</p>
+    <h2 class="section-title">こんなことで<br>困っていませんか？</h2>
+    <div class="divider"></div>
+    <div class="worry-grid">
+      <div class="worry-card">
+        <span class="worry-icon">😔</span>
+        <p>相続税がかかるのか<br>まったく分からない</p>
+      </div>
+      <div class="worry-card">
+        <span class="worry-icon">📄</span>
+        <p>期限内に申告できるか<br>不安で仕方ない</p>
+      </div>
+      <div class="worry-card">
+        <span class="worry-icon">🏠</span>
+        <p>不動産や株の評価が<br>どうなるか知りたい</p>
+      </div>
+      <div class="worry-card">
+        <span class="worry-icon">👨‍👩‍👧</span>
+        <p>家族で分け方について<br>もめてしまっている</p>
+      </div>
+      <div class="worry-card">
+        <span class="worry-icon">📞</span>
+        <p>税理士に頼むと<br>高くつきそうで怖い</p>
+      </div>
+      <div class="worry-card">
+        <span class="worry-icon">🔍</span>
+        <p>生前に対策しておきたいが<br>何をすればよいか分からない</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div id="about">
+  <div class="section">
+    <p class="section-label">選ばれる理由</p>
+    <h2 class="section-title">山田税理士事務所が<br>選ばれる４つの理由</h2>
+    <div class="divider"></div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <h3>相続専門で経験豊富</h3>
+        <p>相続税申告の件数は年間50件以上。複雑なケースも、豊富な経験でスムーズに対応します。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <h3>分かりやすい説明</h3>
+        <p>難しい税務用語をできるだけ使わず、図やイラストも交えて丁寧にご説明します。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <h3>明快な料金体系</h3>
+        <p>事前に費用の見積もりをご提示します。追加費用が発生する場合も必ずご相談のうえ進めます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">04</div>
+        <h3>ワンストップ対応</h3>
+        <p>司法書士・弁護士などとのネットワークで、相続登記から争族問題まで幅広くサポートします。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div class="profile-bg" id="profile">
+  <div class="profile-inner">
+    <div>
+      <div class="profile-photo-placeholder">🧑‍💼</div>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-light); text-align: center;">※ 写真はダミーです</p>
+    </div>
+    <div>
+      <p class="section-label">代表プロフィール</p>
+      <div class="profile-name">山田 太郎（やまだ たろう）</div>
+      <p class="profile-title">税理士 ／ 山田税理士事務所 代表</p>
+      <p class="profile-message">
+        「相続は人生で何度もあることではありません。だからこそ、みなさんが安心して任せられる存在でいたいと思っています。難しいことも、やさしい言葉でお伝えします。」
+      </p>
+      <table class="profile-table">
+        <tr><td>出 身</td><td>東京都（出生・育ち）</td></tr>
+        <tr><td>学 歴</td><td>○○大学 経済学部 卒業</td></tr>
+        <tr><td>資 格</td><td>税理士（登録番号 XXXXXX）</td></tr>
+        <tr><td>経 歴</td><td>大手税理士法人にて相続税務に従事後、独立開業。相続税申告・生前対策を専門とし、累計申告件数は500件超。</td></tr>
+        <tr><td>所 属</td><td>日本税理士会 ○○支部</td></tr>
+        <tr><td>得意分野</td><td>相続税申告・生前贈与対策・不動産相続・事業承継</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div id="services">
+  <div class="section">
+    <p class="section-label">サービス案内</p>
+    <h2 class="section-title">ご提供しているサービス</h2>
+    <div class="divider"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-head">
+          <h3>相続税申告</h3>
+          <p>INHERITANCE TAX RETURN</p>
+        </div>
+        <div class="service-body">
+          <ul>
+            <li>財産・債務の調査・確認</li>
+            <li>相続税の試算・節税アドバイス</li>
+            <li>遺産分割協議書の作成サポート</li>
+            <li>申告書の作成・提出</li>
+            <li>税務署対応・税務調査立会い</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-head">
+          <h3>生前対策・節税相談</h3>
+          <p>PRE-DEATH PLANNING</p>
+        </div>
+        <div class="service-body">
+          <ul>
+            <li>相続税の試算・シミュレーション</li>
+            <li>生前贈与を活用した節税提案</li>
+            <li>不動産活用によるプランニング</li>
+            <li>生命保険の活用提案</li>
+            <li>遺言書作成のサポート</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-head">
+          <h3>相続手続き代行</h3>
+          <p>PROCEDURE SUPPORT</p>
+        </div>
+        <div class="service-body">
+          <ul>
+            <li>各種相続書類の収集代行</li>
+            <li>金融機関・証券会社の手続き</li>
+            <li>不動産名義変更（司法書士連携）</li>
+            <li>年金・保険の手続きサポート</li>
+            <li>相続人調査・戸籍の収集</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OFFICE INFO -->
+<div class="info-bg" id="info">
+  <div class="section">
+    <p class="section-label">事務所情報</p>
+    <h2 class="section-title">事務所概要</h2>
+    <div class="divider"></div>
+    <div class="info-grid">
+      <div>
+        <table class="info-table">
+          <tr>
+            <td>事務所名</td>
+            <td>山田税理士事務所</td>
+          </tr>
+          <tr>
+            <td>代 表</td>
+            <td>山田 太郎（税理士）</td>
+          </tr>
+          <tr>
+            <td>所在地</td>
+            <td>〒XXX-XXXX<br>東京都○○区○○ X-X-X<br>○○ビル 2F</td>
+          </tr>
+          <tr>
+            <td>電 話</td>
+            <td>03-XXXX-XXXX</td>
+          </tr>
+          <tr>
+            <td>メール</td>
+            <td>info@yamada-tax.jp</td>
+          </tr>
+          <tr>
+            <td>営業時間</td>
+            <td>平日 9:00〜17:30<br>（土日祝日は事前予約にて対応）</td>
+          </tr>
+          <tr>
+            <td>アクセス</td>
+            <td>○○線「○○駅」徒歩3分</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <div class="map-placeholder">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          <span>Google マップをここに埋め込み</span>
+          <span style="font-size:12px; opacity:.6">（実装時にiframeを挿入）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact">
+  <h2>まずは気軽にご相談ください</h2>
+  <p>
+    「相談だけでもいいの？」という方も大歓迎です。<br>
+    初回30分の無料相談を実施しています。お電話・メールどちらでもどうぞ。
+  </p>
+  <a href="tel:03XXXXXXXX" class="cta-tel">03-XXXX-XXXX</a>
+  <span class="cta-tel-note">受付時間：平日 9:00〜17:30</span>
+  <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+    <a href="#" class="btn-primary" style="background: var(--accent-gold); box-shadow: 0 4px 14px rgba(201,168,76,.35);">
+      📧 メールで問い合わせる
+    </a>
+    <a href="#" class="btn-outline" style="color: #fff; border-color: rgba(255,255,255,.6);">
+      サービス料金を見る
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">山田税理士事務所</p>
+  <p>〒XXX-XXXX 東京都○○区○○ X-X-X ○○ビル 2F</p>
+  <p>TEL: 03-XXXX-XXXX ／ 平日 9:00〜17:30</p>
+  <p style="margin-top: 16px;">© 2025 山田税理士事務所 All rights reserved.</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.worry-card, .feature-card, .service-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
